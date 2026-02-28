@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  automation-api:
+    image: ai-remediation_automation-api
+    container_name: automation-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ai-engine
+
+  ai-engine:
+    image: ollama/ollama
+    container_name: ai-engine
+    ports:
+      - "11434:11434"

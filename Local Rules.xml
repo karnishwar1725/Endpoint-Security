@@ -1,0 +1,31 @@
+<group name="custom,">
+
+  <!-- Windows Brute Force -->
+  <rule id="100100" level="10">
+    <if_sid>60122</if_sid>
+    <description>Brute force login detected</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Encoded PowerShell -->
+  <rule id="100200" level="12">
+    <if_sid>61603</if_sid>
+    <field name="data.win.eventdata.commandLine">-EncodedCommand</field>
+    <description>Encoded PowerShell detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+  </rule>
+
+  <!-- Linux Privilege Escalation -->
+  <rule id="100800" level="12">
+    <match>Privilege escalation</match>
+    <description>Linux privilege escalation attempt detected</description>
+    <mitre>
+      <id>T1548</id>
+    </mitre>
+  </rule>
+
+</group>
